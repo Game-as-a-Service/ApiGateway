@@ -13,6 +13,16 @@ builder.Services.Configure<ForwardedHeadersOptions>(options =>
 
 var app = builder.Build();
 
+app.Use((context, next) =>
+{
+    foreach (var (key, value) in context.Request.Headers)
+    {
+        Console.WriteLine($"{key}: {value}");
+    }
+
+    return next();
+});
+
 app.UseForwardedHeaders();
 
 app.MapReverseProxy();
