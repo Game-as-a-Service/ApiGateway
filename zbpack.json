@@ -1,0 +1,5 @@
+{
+    "dotnet": {
+        "submodule_dir": "src/ApiGateway"
+    }
+}
